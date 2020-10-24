@@ -1,2 +1,13 @@
-h1 Users#show
-p Find me in app/views/users/show.html.slim
+h1 Users info
+
+= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg"
+table.table.table-hover.col-md-5
+  tbody
+    tr
+      th= User.human_attribute_name(:name)
+      td= @user.name
+    tr
+      th= User.human_attribute_name(:introduction)
+      td= @user.introduction
+
+= link_to 'edit', edit_user_path, class: 'btn btn-warning'
