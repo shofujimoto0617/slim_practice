@@ -1,0 +1,16 @@
+h1 User info
+
+= form_with model: @user, local: true do |f|
+  .form-group
+    = f.label :name
+    = f.text_field :name, id: 'user_name'
+  .form-group
+    = f.label :image
+    br
+    = f.attachment_field :profile_image, id: 'user_profile_image'
+  .form-group
+    = f.label :introduction
+    = f.text_area :introduction, id: 'user_introduction'
+
+  = f.submit 'Update User'
+

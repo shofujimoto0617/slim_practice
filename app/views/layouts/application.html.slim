@@ -1,0 +1,30 @@
+doctype html
+html
+  head
+    title
+      | PracticeApp
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  body
+    .app-title.navbar.navbar-expand-md.navbar-light.bg-light
+      .navbar-brand Bookers
+
+      ul.navbar-nav.ml-auto
+        - if user_signed_in?
+          li.nav-item= link_to 'Home', class: 'nav-link'
+          li.nav-item= link_to 'Users', users_path, class: 'nav-link'
+          li.nav-item= link_to 'Books', class: 'nav-link'
+          li.nav-item= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'nav-link'
+        - else
+          li.nav-item= link_to 'Top', root_path, class: 'nav-link'
+          li.nav-item= link_to 'About', homes_about_path, class: 'nav-link'
+          li.nav-item= link_to 'Sign up', new_user_registration_path, class: 'nav-link'
+          li.nav-item= link_to 'Log in', new_user_session_path, class: 'nav-link'
+    .container
+      p.notice
+        = notice
+      p.alert
+        = alert
+      = yield
