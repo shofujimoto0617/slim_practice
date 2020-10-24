@@ -1,0 +1,10 @@
+h1 New book
+
+= form_with model: @book, local: true do |f|
+  .form-group
+    = f.label :title
+    = f.text_field :title, class: 'form-control', id: 'book_title'
+  .form-group
+    = f.label :Opinion
+    = f.text_area :body, class: 'form-control', id: 'book_body'
+  = f.submit 'Create Book', class: 'btn btn-primary'

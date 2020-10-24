@@ -1,0 +1,10 @@
+h1 Editing Book
+
+= form_with model: @book, local: true do |f|
+  .form-group
+    = f.label :title
+    = f.text_field :title, class: 'form-control', id: 'book_title'
+  .form-group
+    = f.label :body
+    = f.text_area :body, class: 'form-control', id: 'book_body'
+  = f.submit 'Update Book', class: 'btn btn-primary'
